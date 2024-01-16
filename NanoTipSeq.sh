@@ -7,14 +7,14 @@
 # L1 index
 set -e
 set -o pipefail
-L1MdTf_btw2_index=/home/jhan/L1mdtf1_bt2_index/L1MdTf1
+L1MdTf_btw2_index=#insert path to bowtie index
 
 # Packages and environments
 # Make sure these 2 packages are installed
 # bowtie2
 # ripgrep https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 
-samextractclip=/home/jhan/jvarkit/dist/samextractclip.jar
+samextractclip= #insert path to jar file
 echo "Index Path: $L1MdTf_btw2_index"
 echo "ClipJarPath: $samextractclip"
 
