@@ -190,6 +190,9 @@ rm -f $output_dir/*$ACount"pA.merged.bed"
 rm -f $output_dir/*$ACount"pA.merged.cluster.bed"
 rm -f $output_dir/*$ACount"pA.merged.tempID"
 
+#Format insertions list for RIdeogram
+bash list_mod.sh $output_dir/*$ACount"pA.merged.new_inst-3_sup.txt" $output_dir/*$ACount"_insertions-list.txt"
+
 # write a code to check if in each input, there are the following output files : 
 
 #1. *merged.bed
