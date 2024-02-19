@@ -14,5 +14,5 @@ The inputs of this script are your bam alignment file and the polyA count for yo
 ```bash
 bash NanoTipSeq.sh <alignment.bam> <polyA count>
 ```
-##Output Files
+## Output Files
 This program should produce two output files: a .bed file and a .txt file. The pA.merged.new_inst-3_sup.txt file details the list of predicted insertions.
