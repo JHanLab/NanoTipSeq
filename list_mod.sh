@@ -1,8 +1,7 @@
 #!/bin/bash
 
-input_file="re-basecalled_c57BL6_shearDNAsoft_clip.5pA.merged.new_inst-3_sup.txt"  # Replace with your input file
-output_file="rebasecalled_c57Bl6_insertions.txt"          # Replace with your desired output file
-
+input_file="$1"  # Replace with your input file
+output_file="$2"          # Replace with your desired output file
 # Check if the input file exists
 if [ ! -f "$input_file" ]; then
   echo "Input file '$input_file' not found."
