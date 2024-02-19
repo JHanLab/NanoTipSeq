@@ -182,6 +182,13 @@ then
 else
   echo "ERROR: predicited insertions list was not created"
 fi
+rm -f $output_dir/*soft_clip.fastq
+rm -f $output_dir/*short_name.fastq
+rm -f $output_dir/*L1mdtf1.sorted.bam
+rm -f $output_dir/*.name.txt
+rm -f $output_dir/*$ACount"pA.merged.bed"
+rm -f $output_dir/*$ACount"pA.merged.cluster.bed"
+rm -f $output_dir/*$ACount"pA.merged.tempID"
 
 # write a code to check if in each input, there are the following output files : 
 
