@@ -105,23 +105,6 @@ for i in $output_dir/*soft_clip.fastq ; do
     cat ${i%fastq}temp.plus.txt ${i%fastq}temp.minus.txt  | sort -k1,1 -k2,2n - > ${i%fastq}$ACount"pA.merged.bed"
     rm ${i%fastq}temp*
 done
-
-for i in $output_dir/*soft_clip.fastq ; do 
-  cat $i | awk 'NR%4==1 {print substr($1,2)}' | sed "s/;/\t/g" | sed "s/'/ /g" | awk '{OFS="\t";$1=$1"_"$2; print}' > ${i%.fastq}.name.txt
-    time rg -f ${i%fastq}"short_name.L1.mapped.reads_contain-"$ACount"pA.name.txt" ${i%.fastq}.name.txt > ${i%fastq}temp.test_name.txt 
-    cat ${i%fastq}temp.test_name.txt  | awk -v OFS="\t" '$7==5 {print $3, $4-150, $4+20, $4 , "plus" , $1}' > ${i%fastq}temp.plus.txt
-    cat ${i%fastq}temp.test_name.txt | awk -v OFS="\t" '$7==3 { chr = $3; start = $4; cigar = $6; len = 0;
-    while (match(cigar, /[0-9]+[MINX=]/)) {
-        len += substr(cigar, RSTART, RLENGTH - 1);
-        cigar = substr(cigar, RSTART + RLENGTH);
-    }
-    $8 = start + len;
-    $9 = $8 + 150;
-    print $3, $8, $9, $4, "minus", $1;}' > ${i%fastq}temp.minus.txt
-    cat ${i%fastq}temp.plus.txt ${i%fastq}temp.minus.txt  | sort -k1,1 -k2,2n - > ${i%fastq}$ACount"pA.merged.bed"
-    rm ${i%fastq}temp*
-done
-
  
 if [ -f $output_dir/*$ACount"pA.merged.bed" ]
 then
