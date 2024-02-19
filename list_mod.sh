@@ -35,7 +35,7 @@ while IFS=$'\t' read -r line; do
   
   # Convert color_counter to hexadecimal
   hex_color=$(printf "%02x" "$color_counter")
-  color="ff7f$hex_color"
+  color="e86051"
   
   # Increment color_counter
   ((color_counter++))
