@@ -8,14 +8,14 @@ if [ ! -f "$input_file" ]; then
   exit 1
 fi
 
-# Initialize color counter
-color_counter=127  # Decimal equivalent of ff7f00 in base 10
-
 # Create the header line
 header="Type\tShape\tChr\tStart\tEnd\tcolor"
 
 # Initialize the output file with the header
 echo -e "$header" > "$output_file"
+
+# Define the static color value
+color="e86051"
 
 # Loop through each line in the input file
 while IFS=$'\t' read -r line; do
@@ -33,14 +33,7 @@ while IFS=$'\t' read -r line; do
   # Append "circle" for the Shape column
   shape="circle"
   
-  # Convert color_counter to hexadecimal
-  hex_color=$(printf "%02x" "$color_counter")
-  color="e86051"
-  
-  # Increment color_counter
-  ((color_counter++))
-  
-  # Write the formatted line to the output file
+  # Write the formatted line to the output file with static color
   echo -e "$type\t$shape\t$chr\t$start\t$end\t$color" >> "$output_file"
 done < "$input_file"
 
